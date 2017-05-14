@@ -1,4 +1,4 @@
-use v6;
+use v6.c;
 unit class System::Info:ver<0.0.1>;
 
 
@@ -6,15 +6,23 @@ unit class System::Info:ver<0.0.1>;
 
 =head1 NAME
 
-System::Info - blah blah blah
+System::Info - Factory for system specific information objects
 
 =head1 SYNOPSIS
 
   use System::Info;
 
+  my $si = System::Info.new;
+
+  say "Hostname:              $si.host()";
+  say "Number of CPU's:       $si.ncpu()";
+  say "Processor type:        $si.cpu_type()"; # short
+  say "Processor description: $si.cpu()";      # long
+  say "OS and version:        $si.os()";;
+
 =head1 DESCRIPTION
 
-System::Info is ...
+System::Info tries to present system-related information, like number of CPU's, architecture, OS and release related information in a system-independent way. This releases the user of this module of the need to know if the information comes from Windows, Linux, BSD, MacOS, and if the architecture is i386, x64, pa-risc2, or arm.
 
 =head1 AUTHOR
 
