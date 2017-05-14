@@ -1,6 +1,17 @@
 use v6.c;
 unit class System::Info:ver<0.0.1>;
 
+# list classes in alphabetical order
+use System::Info::Darwin;
+use System::Info::Generic;
+
+method new() {
+    given VM.osname {
+        when m:i/darwin/ { System::Info::Darwin.new }
+
+        default          { System::Info::Generic.new }
+    }
+}
 
 =begin pod
 
@@ -12,13 +23,13 @@ System::Info - Factory for system specific information objects
 
   use System::Info;
 
-  my $si = System::Info.new;
+  my $si = System::Info.new;  # returns a System::Info::xxx subclass
 
   say "Hostname:              $si.host()";
   say "Number of CPU's:       $si.ncpu()";
   say "Processor type:        $si.cpu_type()"; # short
   say "Processor description: $si.cpu()";      # long
-  say "OS and version:        $si.os()";;
+  say "OS and version:        $si.os()";
 
 =head1 DESCRIPTION
 
