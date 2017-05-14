@@ -10,7 +10,7 @@
   "perl" : "6.c",
   "provides" : {
     "System::Info" : "lib/System/Info.pm6",
-    "System::Info::Darwon" : "lib/System/Info/Darwin.pm6",
+    "System::Info::Darwin" : "lib/System/Info/Darwin.pm6",
     "System::Info::Generic" : "lib/System/Info/Generic.pm6"
   },
   "resources" : [ ],
