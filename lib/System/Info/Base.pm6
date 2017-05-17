@@ -6,6 +6,7 @@ has $.ncpu     = '';
 has $.cpu-type = '';
 has $.cpu      = '';
 has $.os       = VM.osname // 'unknown';
+has $.memory   = 'unknown';
 
 =begin pod
 

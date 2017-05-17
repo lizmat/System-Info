@@ -3,8 +3,6 @@ use System::Info::Base;
 
 unit class System::Info::Darwin:ver<0.0.1> is System::Info::Base;
 
-has $.memory = 'unknown';
-
 my %mapper =
   'CPU Speed'             => 'speed',
   'CPU Type'              => 'type',

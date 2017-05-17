@@ -30,6 +30,7 @@ System::Info - Factory for system specific information objects
   say "Processor type:        $si.cpu_type()"; # short
   say "Processor description: $si.cpu()";      # long
   say "OS and version:        $si.os()";
+  say "Memory:                $si.memory()";
 
 =head1 DESCRIPTION
 
