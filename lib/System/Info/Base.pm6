@@ -1,7 +1,7 @@
 use v6.c;
 unit class System::Info::Base:ver<0.0.1>;
 
-has $.hostname = try { chomp(qx/hostname/) } // 'unknown';
+has $.host     = try { chomp(qx/hostname/) } // 'unknown';
 has $.ncpu     = '';
 has $.cpu-type = '';
 has $.cpu      = '';
