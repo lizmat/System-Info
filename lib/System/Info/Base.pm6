@@ -8,6 +8,15 @@ has $.cpu      = '';
 has $.os       = VM.osname // 'unknown';
 has $.memory   = 'unknown';
 
+method map-split-lines(%mapper,$splitter,$source) {
+    my % = $source.lines.map: {
+        if .contains($splitter) {
+            my ($key,$value) = .split($splitter);
+            if %mapper{$key.trim} -> $mapped { $mapped => $value.trim }
+        }
+    }
+}
+
 =begin pod
 
 =head1 NAME

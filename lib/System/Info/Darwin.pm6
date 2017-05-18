@@ -25,16 +25,12 @@ my %mapper =
 method new() { state $ = self.bless( |self!system-profiler ) }
 
 method !system-profiler() {
-    my %p =
+    my %p = self.map-split-lines(
+      %mapper,
+      ": ",
       qx'/usr/sbin/system_profiler -detailLevel mini SPHardwareDataType SPSoftwareDataType'
-      .lines
-      .map( {
-          if .contains(": ") {
-              my ($key,$value) = .split(": ")>>.trim;
-              if %mapper{$key} -> $mapped { $mapped => $value }
-          }
-      } );
-    
+    );
+
     {
         cpu      => "%p<model> (%p<speed>)",
         cpu-type => %p<type>,
